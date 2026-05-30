@@ -9,6 +9,8 @@ export default function App() {
 
 function runAway(e) {
   e.preventDefault();
+  e.stopPropagation();
+
   const btn = noRef.current;
 
   if (noPosition.current === "right") {
@@ -55,6 +57,8 @@ function runAway(e) {
               className="btn-no"
               onMouseEnter={runAway}
               onTouchStart={runAway}
+              onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); }}
+
               >
               No
               </button>
